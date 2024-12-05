@@ -1,0 +1,105 @@
+@import "../../../theme/theme.scss";
+
+.input-wrapper {
+  .label-container {
+    min-height: 24px;
+    margin-block-end: 4px;
+
+    .label {
+      display: block;
+      font-size: 18px;
+      font-weight: 500;
+      display: inline-block;
+      color: $font-color-1;
+
+      &.required {
+        &::before {
+          content: "*";
+          color: $red-1;
+          margin-inline-end: 4px;
+        }
+      }
+    }
+  }
+
+  .input-wrapper {
+    border-radius: 16px;
+    line-height: 1.5;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    overflow: hidden;
+
+    &:focus,
+    &:focus-visible,
+    &:has(.input-value:focus),
+    &:has(.input-value:focus-visible){
+      outline: 1px solid black;
+    }
+
+    &.password {
+      .show-password {
+        border: none;
+        cursor: pointer;
+        background-color: $blue-2;
+        padding-inline: 8px;
+        &:focus {
+          outline: none;
+        }
+      
+        &:focus-visible {
+          background-color: $blue-1;
+        }
+      
+        &:hover {
+          background-color: $blue-3;
+        }
+
+        &:hover {
+          background-color: $blue-3;
+        }
+
+        .icon {
+          vertical-align: middle;
+        }
+      }
+
+      .input-value {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        flex: 1;
+      }
+    }
+
+    .input-value {
+      background-color: $grey-2;
+      color: white;
+      font-size: 20px;
+      padding: 12px 10px;
+      border-radius: 16px;
+      border: none;
+      width: 100%;
+      &:focus,
+      &:focus-visible {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: white;
+      }
+
+      &.ltr {
+        direction: ltr;
+      }
+    }
+  }
+}
+
+.error-container {
+  margin-block-start: 4px;
+  min-height: 24px;
+  .error {
+    font-size: 18px;
+    color: $red-1;
+  }
+}

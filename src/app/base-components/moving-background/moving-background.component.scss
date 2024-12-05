@@ -1,0 +1,31 @@
+:host {
+  .background {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    position: absolute;
+    inset: 0;
+    column-gap: 104px;
+    row-gap: 128px;
+    justify-items: center;
+    z-index: 0;
+    padding: 32px;
+    animation: moveup 10s infinite linear;
+    justify-content: center;
+
+    .image {
+      width: 128px;
+      vertical-align: middle;
+      //   filter: invert(1) drop-shadow(2px 4px 0px black);
+      filter: invert(1);
+    }
+  }
+}
+
+@keyframes moveup {
+  0% {
+    transform: translateY(-0%);
+  }
+  100% {
+    transform: translateY(calc(-100% - 66px));
+  }
+}

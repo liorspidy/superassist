@@ -1,0 +1,5 @@
+<div class="background">
+    @for(ingridient of getLoopedIngredients(); track $index){
+        <img class="image" [src]="ingridient.src" [alt]="ingridient.name" loading="lazy" />
+    }
+</div>

@@ -1,1 +1,108 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./theme/theme.scss";
+
+body {
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  min-height: 100dvh;
+  background-color: rgb(42, 41, 41);
+
+  &:has( .login) {
+    overflow: hidden;
+  }
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+a,
+.mat-h1,
+.mat-headline-5,
+.mat-typography .mat-h1,
+.mat-typography .mat-headline-5,
+.mat-typography h1 {
+  font-family: "Rubik", sans-serif;
+}
+
+a {
+  text-decoration: underline;
+  color: $blue-1;
+  cursor: pointer;
+
+  &:hover {
+    color: $blue-2;
+  }
+}
+
+button.default {
+  padding: 4px 16px;
+  border-radius: 32px;
+  font-size: 20px;
+  cursor: pointer;
+  display: inline-block;
+  width: fit-content;
+  min-width: 100px;
+  box-sizing: border-box;
+  border: 2px solid $blue-1;
+
+  &.primary-btn {
+    background-color: $blue-1;
+    color: white;
+
+    &:hover {
+      background-color: $blue-2;
+      border: 2px solid $blue-2;
+    }
+
+    &:disabled {
+      background-color: $grey-2;
+      border: 2px solid $grey-1;
+      color: white;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 1px solid black;
+    }
+  }
+
+  &.secondary-btn {
+    background-color: transparent;
+    color: $font-color-1;
+
+    &:hover {
+      border: 2px solid $blue-2;
+    }
+
+    &:disabled {
+      background-color: $grey-3;
+      border: 2px solid $grey-2;
+      color: white;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline: 1px solid black;
+    }
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
