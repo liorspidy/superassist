@@ -22,7 +22,7 @@
     }
   }
 
-  .input-wrapper {
+  .input-container {
     border-radius: 16px;
     line-height: 1.5;
     width: 100%;
@@ -34,7 +34,7 @@
     &:focus-visible,
     &:has(.input-value:focus),
     &:has(.input-value:focus-visible){
-      outline: 1px solid black;
+      outline: 1px solid white;
     }
 
     &.password {

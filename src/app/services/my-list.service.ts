@@ -2,6 +2,7 @@ import { Injectable, signal } from '@angular/core';
 import { IItem } from '../components/item/item.interface';
 import { HttpClient } from '@angular/common/http';
 import * as convert from 'xml-js';
+import { GlobalService } from './global.service';
 
 @Injectable({
   providedIn: 'root',
@@ -16,9 +17,10 @@ export class MyListService {
   private totalPriceSignal = signal<number>(0);
   readonly totalPrice = this.totalPriceSignal.asReadonly();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private globalService: GlobalService) {}
 
   parseXml(store: string , type: string, filename: string) {
+    this.globalService.setLoading(true);
     this.http
       .get(
         `/assets/priceLists/${store}/${type}/${filename}`,
@@ -33,13 +35,16 @@ export class MyListService {
           };
 
           const result: any = convert.xml2js(xml, options);
-          const items = result['root'].Items.Item.slice(0, 10);
+          const items = result['root'].Items.Item.slice(0, 30);
           const itemsArr: IItem[] = items.map((item: any) => this.mapToItem(item));
 
           this.setAllItems(itemsArr);
         },
         error: (err) => {
           console.error('Failed to load XML file', err);
+        },
+        complete: () => {
+          this.globalService.setLoading(false);
         },
       });
   }

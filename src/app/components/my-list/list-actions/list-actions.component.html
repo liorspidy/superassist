@@ -1,0 +1,14 @@
+<div class="actions">
+    <button class="action-wrapper" (click)="onAddToList()">
+        <img src="assets/icons/plus-icon.svg" alt="Add item" class="icon" >
+    </button>
+    <button class="action-wrapper" (click)="onRemoveFromList()">
+        <img src="assets/icons/trash-icon.svg" alt="Remove item" class="icon" >
+    </button>
+    <button class="action-wrapper" (click)="onSearchItem()">
+        <img src="assets/icons/search-icon.svg" alt="Search item" class="icon">
+    </button>
+    @if(isSeachOpen()){
+        <app-input-text class="search-input" type="search" [placeholder]="'חיפוש מוצר'" [hasError]="false" [hasLabel]="false"></app-input-text>
+    }
+</div>

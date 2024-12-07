@@ -1,16 +1,7 @@
 <section class="my-list">
     <div class="top-section">
-        <div class="actions">
-            <button class="action-wrapper" (click)="onAddToList()">
-                <img src="assets/icons/plus-icon.svg" alt="Add item" class="icon" >
-            </button>
-            <button class="action-wrapper" (click)="onSearchItem()">
-                <img src="assets/icons/search-icon.svg" alt="Search item" class="icon">
-            </button>
-            @if(isSeachOpen()){
-                <app-input-text class="search-input" type="search" [placeholder]="'חיפוש מוצר'"></app-input-text>
-            }
-        </div>
+        <app-list-actions></app-list-actions>
+
         <div class="total">
             <div class="price">
                 <span class="label">מחיר:</span>
@@ -37,6 +28,9 @@
                 <app-item [itemData]="item"></app-item>
                 }
             </li>
+            }
+            @if(tableItems().length > 20) {
+                <app-pagination></app-pagination>
             }
         </ul>
     </div>

@@ -1,5 +1,5 @@
 <label class="input-wrapper">
-  @if(!hasLabel()){
+  @if(hasLabel()){
   <div class="label-container">
     @if(label()){
     <span class="label" [ngClass]="{
@@ -9,7 +9,7 @@
   </div>
   }
 
-  <div class="input-wrapper" [ngClass]="{'password': isPasswordVisible() !== null,}">
+  <div class="input-container" [ngClass]="{'password': isPasswordVisible() !== null,}">
     <!-- if this is a password input, show the password visibility button -->
     @if(isPasswordVisible() !== null){
     <button type="button" class="show-password" (click)="onPasswordVisibility()">
@@ -27,7 +27,7 @@
   </div>
 </label>
 
-@if(!hasError()){
+@if(hasError()){
 <div class="error-container">
   @if(err()){
   <span class="error">{{ err() }}</span>
