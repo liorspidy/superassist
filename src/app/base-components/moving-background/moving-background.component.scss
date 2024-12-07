@@ -2,7 +2,7 @@
   .background {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    position: absolute;
+    position: fixed;
     inset: 0;
     column-gap: 104px;
     row-gap: 128px;
@@ -28,4 +28,21 @@
   100% {
     transform: translateY(calc(-100% - 66px));
   }
+}
+
+@keyframes moveupmobile {
+    0% {
+        transform: translateY(-0%);
+    }
+    100% {
+        transform: translateY(calc(-100% - 106px));
+    }
+}
+
+@media screen and (max-width: 768px) {
+    :host {
+        .background {
+            animation: moveupmobile 10s infinite linear;
+        }
+    }
 }

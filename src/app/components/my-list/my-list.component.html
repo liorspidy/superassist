@@ -1,0 +1,43 @@
+<section class="my-list">
+    <div class="top-section">
+        <div class="actions">
+            <button class="action-wrapper" (click)="onAddToList()">
+                <img src="assets/icons/plus-icon.svg" alt="Add item" class="icon" >
+            </button>
+            <button class="action-wrapper" (click)="onSearchItem()">
+                <img src="assets/icons/search-icon.svg" alt="Search item" class="icon">
+            </button>
+            @if(isSeachOpen()){
+                <app-input-text class="search-input" type="search" [placeholder]="'חיפוש מוצר'"></app-input-text>
+            }
+        </div>
+        <div class="total">
+            <div class="price">
+                <span class="label">מחיר:</span>
+                <div class="value-wrapper">
+                    <span class="value">{{ totalPrice() }}</span>
+                    <span class="ils">&#8362;</span>
+                </div>
+            </div>
+
+            <div class="products">
+                <span class="amount">{{ myListItems().length }}</span>
+                <span>מוצרים</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <ul class="list">
+            @for(item of tableItems(); track $index) {
+            <li class="row" [ngClass]="{'odd': $odd,'even': $even}">
+                @if(item === null) {
+                <span></span>
+                } @else {
+                <app-item [itemData]="item"></app-item>
+                }
+            </li>
+            }
+        </ul>
+    </div>
+</section>

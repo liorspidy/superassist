@@ -1,55 +1,36 @@
 <label class="input-wrapper">
+  @if(!hasLabel()){
   <div class="label-container">
     @if(label()){
-    <span
-      class="label"
-      [ngClass]="{
+    <span class="label" [ngClass]="{
         required: required()
-      }"
-      >{{ label() }}</span
-    >
+      }">{{ label() }}</span>
     }
   </div>
+  }
 
-  <div
-    class="input-wrapper"
-    [ngClass]="{
-              'password': isPasswordVisible() !== null,
-  }"
-  >
+  <div class="input-wrapper" [ngClass]="{'password': isPasswordVisible() !== null,}">
+    <!-- if this is a password input, show the password visibility button -->
     @if(isPasswordVisible() !== null){
-    <button
-      type="button"
-      class="show-password"
-      (click)="onPasswordVisibility()"
-    >
-      <img
-        class="icon"
-        [src]="
+    <button type="button" class="show-password" (click)="onPasswordVisibility()">
+      <img class="icon" [src]="
           isPasswordVisible()
             ? 'assets/icons/visibility-on-white.svg'
             : 'assets/icons/visibility-off-white.svg'
-        "
-      />
+        " />
     </button>
     }
-    <input
-      class="input-value"
-      [ngClass]="{
-          'ltr': dir() === 'ltr',
-      }"
-      [value]="value"
-      [type]="innerType()"
-      [placeholder]="placeholder() ? placeholder() : ''"
-      [disabled]="disabled() || isDisabled"
-      (blur)="onBlur($event)"
-      (input)="onInput($event)"
-    />
+
+    <input class="input-value" [ngClass]="{'ltr': dir() === 'ltr',}" [value]="value" [type]="innerType()"
+      [placeholder]="placeholder() ? placeholder() : ''" [disabled]="disabled() || isDisabled" (blur)="onBlur($event)"
+      (input)="onInput($event)" />
   </div>
 </label>
 
+@if(!hasError()){
 <div class="error-container">
   @if(err()){
   <span class="error">{{ err() }}</span>
   }
 </div>
+}

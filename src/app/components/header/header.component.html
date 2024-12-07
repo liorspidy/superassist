@@ -1,1 +1,26 @@
-<p>header works!</p>
+<header class="header desktop">
+    <a class="logo-link" [routerLink]="['/']">
+        <app-logo mode="landscape"></app-logo>
+    </a>
+    <nav class="nav">
+        <ul class="links">
+            <li class="link-item">
+                <a class="link" [routerLink]="['/main/my-list']" routerLinkActive="active">הרשימה שלי</a>
+            </li>
+
+            <li class="link-item">
+                <a class="link" [routerLink]="['/my-list']" routerLinkActive="active">ביקורות</a>
+            </li>
+
+            <li class="link-item">
+                <a class="link" [routerLink]="['/my-list']" routerLinkActive="active">התחברות</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<header class="header mobile">
+    <a class="logo-link" [routerLink]="['/']">
+        <app-logo [short]="true"></app-logo>
+    </a>
+</header>

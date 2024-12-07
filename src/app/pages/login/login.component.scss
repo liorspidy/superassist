@@ -1,8 +1,10 @@
+@import '../../../theme/theme.scss';
+
 :host {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(42, 41, 41);
+    background-color: $dark-blue-2;
     height: 100%;
     overflow: hidden;
 }

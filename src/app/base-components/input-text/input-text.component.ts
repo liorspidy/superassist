@@ -19,12 +19,15 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class InputTextComponent implements OnInit, ControlValueAccessor {
   type = input.required<string>();
+  hasLabel = input<boolean>(true);
+  hasError = input<boolean>(true);
   label = input<string>();
   placeholder = input<string>();
   required = input<boolean>(false);
   err = input<string>();
   disabled = input<boolean>(false);
   direction = input<'ltr' | 'rtl'>();
+  
   dir = signal<'ltr' | 'rtl'>('rtl');
   innerType = signal<string>('text');
   isPasswordVisible = signal<boolean | null>(null);

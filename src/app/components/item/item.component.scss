@@ -1,0 +1,15 @@
+@import "../../../theme/theme.scss";
+
+:host {
+  .item {
+    .info {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 16px;
+      .value {
+        margin: 0;
+      }
+    }
+  }
+}

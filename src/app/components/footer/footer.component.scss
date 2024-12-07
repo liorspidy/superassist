@@ -1,0 +1,29 @@
+@import "../../../theme/theme.scss";
+
+:host {
+  .footer {
+    background-color: $grey-4;
+    color: $font-color-1;
+    padding: 16px;
+    min-height: 48px;
+    display: grid;
+    grid-template-columns: repeat((auto-fill, minmax(200px, 1fr)));
+
+    .list {
+      list-style: none;
+      .list-item {
+        &:not(:last-child) {
+          margin-block-end: 8px;
+        }
+        .link {
+          transition: color 0.3s;
+          font-size: 16px;
+
+          &:hover {
+            transition: color 0.3s;
+          }
+        }
+      }
+    }
+  }
+}

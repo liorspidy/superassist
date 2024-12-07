@@ -1,0 +1,16 @@
+<div class="item">
+    <div class="image">
+        <!-- <img [src]="itemData()?.image" [alt]="itemData()?.itemName"> -->
+    </div>
+    <div class="info">
+        <h3 class="value">{{ itemData()?.itemName }}</h3>
+        <span class="value"> {{ itemData()?.itemCode }}</span>
+        <span class="value">{{ itemData()?.manufacturerItemDescription }}</span>
+        <span class="value">{{ itemData()?.itemPrice | currency:'ILS' }}</span>
+        <span class="value">{{ itemData()?.qtyInPackage }}</span>
+    </div>
+    <!-- <div class="actions">
+                <button (click)="onEdit()">Edit</button>
+                <button (click)="onDelete()">Delete</button>
+            </div> -->
+</div>

@@ -1,23 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { InputTextComponent } from '../../base-components/input-text/input-text.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
-import { MovingBackgroundComponent } from "../../base-components/moving-background/moving-background.component";
-
+import { Router } from '@angular/router';
+import { LogoComponent } from "../../base-components/logo/logo.component";
 @Component({
   selector: 'app-login-form',
   standalone: true,
-  imports: [InputTextComponent, CommonModule, ReactiveFormsModule, RouterLink, MovingBackgroundComponent],
+  imports: [InputTextComponent, CommonModule, ReactiveFormsModule, LogoComponent],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.scss',
 })
 export class LoginFormComponent implements OnInit {
-  onSubmit() {}
-
   loginForm: FormGroup = new FormGroup({});
+  error = signal<string>('');
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -26,4 +24,11 @@ export class LoginFormComponent implements OnInit {
     });
   }
 
+  onSubmit() {
+    if(this.loginForm.valid) {
+      this.router.navigate(['/main']);
+    } else {
+      this.error.set('נא למלא את כל הפרטים כדי להתחבר');
+    }
+  }
 }

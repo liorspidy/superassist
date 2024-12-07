@@ -1,5 +1,5 @@
 <form [formGroup]="loginForm" class="login-form" (submit)="onSubmit()">
-  <h1 class="logo"><span class="part super">SUPER</span><span class="part assist">ASSIST</span></h1>
+  <app-logo></app-logo>
   <app-input-text
     type="text"
     label="דוא''ל"
@@ -23,9 +23,15 @@
         loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['minlength'].actualLength <  loginForm.get('password')?.errors?.['minlength'].requiredLength ? 'יש להזין סיסמה בת 8 תווים לפחות' : ''"
   ></app-input-text>
 
+  <div class="error-section">
+    @if(!!error()){
+      <span class="error">{{ error() }}</span>
+    }
+  </div>
+
   <div class="actions">
     <a routerLink="/forgot" class="forgot-password">שכחתי סיסמה</a>
-    <button class="default primary-btn login" type="submit">התחבר</button>
-    <button class="default secondary-btn logout" type="submit">התנתק</button>
+    <button class="default primary-btn login" type="submit">התחברות</button>
+    <button class="default secondary-btn logout" type="button">התנתקות</button>
   </div>
 </form>

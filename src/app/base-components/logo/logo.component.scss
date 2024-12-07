@@ -1,0 +1,76 @@
+@import "../../../theme/theme.scss";
+
+:host {
+  align-self: center;
+  
+  .logo-wrapper {
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    direction: ltr;
+    width: fit-content;
+
+    &.landscape {
+      gap: 12px;
+      .cart {
+        height: 42px;
+      }
+      .logo {
+        font-size: 24px;
+        flex-direction: row;
+      }
+    }
+
+    &.short {
+      gap: 12px;
+      
+      .cart {
+        height: 36px;
+      }
+
+      .logo {
+        .part {
+          font-size: 20px;
+          line-height: 1;
+        }
+      }
+    }
+
+    &.white {
+        color: white;
+    }
+
+    .cart {
+      height: 64px;
+      object-fit: contain;
+      vertical-align: middle;
+      rotate: -15deg;
+      position: relative;
+      filter: drop-shadow(2px 1px 1px rgba(0, 0, 0, 0.2));
+    }
+    .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 32px;
+      margin: 0;
+
+      .part {
+        display: block;
+        width: 100%;
+        text-align: center;
+        letter-spacing: 4px;
+      }
+
+      .super {
+        font-weight: 700;
+      }
+
+      .assist {
+        font-weight: 300;
+      }
+    }
+  }
+}
